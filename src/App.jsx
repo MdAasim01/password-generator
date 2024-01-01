@@ -25,9 +25,10 @@ function App() {
 
   const copyPassword = useCallback(() => {
     passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0, 51);
+    // passwordRef.current?.setSelectionRange(0, 11);
     window.navigator.clipboard.writeText(password)
   }, [password]);
+
   
   useEffect(() => {
     passwordGenerator();
@@ -51,7 +52,10 @@ function App() {
                   ref={passwordRef}
                   />
                   <div className="input-group-text p-0">
-                    <button className="btn btn-lg rounded-0"
+                    <button className='btn btn-lg rounded-0' onClick={passwordGenerator}>
+                      <i>&#8635;</i>
+                    </button>
+                    <button className="btn btn-lg btn-primary rounded-0"
                           onClick={copyPassword}
                     >Copy</button>
                   </div>
